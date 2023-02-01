@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "1wwkPnBemcmFaCLAS5ANS4ru1U+Mcumi5h5JZmRuilo4HdnqDqGnonKqwB5wzs5uriaea77pU6xF1scPMcc0Qg==",
+  "success": true,
+  "projectFilePath": "/home/seg/workspace/IntroductionToDotnet/MicroService/Api/Api.csproj",
+  "expectedPackageFiles": [
+    "/home/seg/.nuget/packages/fluentvalidation/11.4.0/fluentvalidation.11.4.0.nupkg.sha512",
+    "/home/seg/.nuget/packages/microsoft.extensions.apidescription.server/3.0.0/microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "/home/seg/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
+    "/home/seg/.nuget/packages/swashbuckle.aspnetcore/6.2.3/swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "/home/seg/.nuget/packages/swashbuckle.aspnetcore.swagger/6.2.3/swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "/home/seg/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.2.3/swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "/home/seg/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.2.3/swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}

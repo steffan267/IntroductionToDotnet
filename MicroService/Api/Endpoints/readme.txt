@@ -1,0 +1,2 @@
+CarsController has more "magic", but enforces a very specific, lean code structure that has clear seperation of concerns. This is my personal preference.
+BikeController is more simplistic, but will also have a tendency to become less maintainable due to lack of thought.
