@@ -1,0 +1,12 @@
+/home/seg/workspace/IntroductionToDotnet/MicroService/Infrastructure/bin/Debug/net6.0/Infrastructure.deps.json
+/home/seg/workspace/IntroductionToDotnet/MicroService/Infrastructure/bin/Debug/net6.0/Infrastructure.dll
+/home/seg/workspace/IntroductionToDotnet/MicroService/Infrastructure/bin/Debug/net6.0/Infrastructure.pdb
+/home/seg/workspace/IntroductionToDotnet/MicroService/Infrastructure/obj/Debug/net6.0/Infrastructure.csproj.AssemblyReference.cache
+/home/seg/workspace/IntroductionToDotnet/MicroService/Infrastructure/obj/Debug/net6.0/Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+/home/seg/workspace/IntroductionToDotnet/MicroService/Infrastructure/obj/Debug/net6.0/Infrastructure.AssemblyInfoInputs.cache
+/home/seg/workspace/IntroductionToDotnet/MicroService/Infrastructure/obj/Debug/net6.0/Infrastructure.AssemblyInfo.cs
+/home/seg/workspace/IntroductionToDotnet/MicroService/Infrastructure/obj/Debug/net6.0/Infrastructure.csproj.CoreCompileInputs.cache
+/home/seg/workspace/IntroductionToDotnet/MicroService/Infrastructure/obj/Debug/net6.0/Infrastructure.dll
+/home/seg/workspace/IntroductionToDotnet/MicroService/Infrastructure/obj/Debug/net6.0/refint/Infrastructure.dll
+/home/seg/workspace/IntroductionToDotnet/MicroService/Infrastructure/obj/Debug/net6.0/Infrastructure.pdb
+/home/seg/workspace/IntroductionToDotnet/MicroService/Infrastructure/obj/Debug/net6.0/ref/Infrastructure.dll

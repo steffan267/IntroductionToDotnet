@@ -1,13 +1,28 @@
+using Domain;
+using Infrastructure;
+using Infrastructure.SomeExternalApi;
+
 namespace Api.Endpoints.BikeController;
 
 public class BikeService : IBikeService
 {
-    public Task<Car> Get(string id)
+    private readonly IExternalApi _externalApi;
+
+    public BikeService(IExternalApi externalApi)
     {
-        throw new NotImplementedException();
+        _externalApi = externalApi;
+    }
+    
+    public async Task<Bike> Get(string id)
+    {
+        //application services interact with Infrastructure layer and domain layer separately, i.e this is where
+        // we map.
+        var response = await _externalApi.Retrieve(id);
+        var bike = new Bike() { Id = response.Id.ToString() };
+        return bike;
     }
 
-    public Task Create(CarRequest request)
+    public Task Create(BikeRequest request)
     {
         throw new NotImplementedException();
     }
