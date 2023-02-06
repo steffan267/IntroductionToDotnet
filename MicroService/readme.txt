@@ -20,13 +20,15 @@ Important topics to read about:
 	 	https://www.newtonsoft.com/json
 
     (important)
-        EntityFramework:
+          EntityFramework:
             https://learn.microsoft.com/en-us/ef/core/get-started/overview/first-app?tabs=netcore-cli
 	  Delegates - Action & Func:
 		https://medium.com/@kylia669/func-vs-action-in-net-564ee4f8a8ee
 	  Time - Datetime & Timespan
 		Datetime: https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-7.0
 		Timespan: https://learn.microsoft.com/en-us/dotnet/api/system.timespan?view=net-7.0
+	  Generics
+	  	https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/types/generics
 
     (I feel lucky)
         HostedService(background service):
