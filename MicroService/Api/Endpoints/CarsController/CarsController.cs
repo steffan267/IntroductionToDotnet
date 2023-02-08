@@ -27,14 +27,12 @@ public class CarsController : ControllerBase
     [HttpPost] //This is created under "POST:root_url/Cars"
     [ProducesResponseType(typeof(CreateCarResponse),StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<IActionResult> Create([FromServices] IHandler<CreateCarRequest,CreateCarResponse> handler, [FromServices] IValidator<CreateCarRequest> validator, CreateCarRequest request)
+    public async Task<IActionResult> Create([FromServices] IHandler<CreateCarRequest,CreateCarResponse> handler, [FromBody] CreateCarRequest request)
     {
-        /* It is entirely possible to use the native asp.net framework to do validation, so that it happens before code is executed in this method.
-           Here I am using a framework called FluentValidation: https://docs.fluentvalidation.net/en/latest/aspnet.html
-           And we will invoke it manually
+        /* 
+           In startup.cs we have registered fluentValidation(framework) to validate before hitting the method -> FluentValidation: https://docs.fluentvalidation.net/en/latest/aspnet.html
         */
-        await validator.ValidateAndThrowAsync(request); 
-        
+
         var response = await handler.Invoke(request);
 
         //it is possible to do post validation here as well.
@@ -57,10 +55,10 @@ public class CarsController : ControllerBase
     {
         //the parameter/route named id is automatically aligned with what is in the HttpGet-attribute
         var request = new GetCarRequest() { Id = id };
-        await validator.ValidateAndThrowAsync(request); 
+        var result = await validator.ValidateAsync(request);
         
-        var response = await handler.Invoke(request);
-
-        return Ok(response);
+        return result.IsValid ? 
+            Ok(await handler.Invoke(request)) : 
+            UnprocessableEntity(result);
     }
 }

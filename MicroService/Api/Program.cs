@@ -2,6 +2,8 @@ using Api;
 using Api.Endpoints.CarsController.CreateCar;
 using Api.Endpoints.CarsController.GetCar;
 using Api.Middleware;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Infrastructure;
 using Microsoft.Extensions.Options;
 using Serilog;
@@ -9,7 +11,9 @@ using Serilog;
 var builder = WebApplication.CreateBuilder(args);
 
 
-builder.Services.AddControllers();
+builder.Services
+    .AddControllers()
+    .AddNewtonsoftJson();
 
 /*
  * Try running the application and go to loaclhost:port/swagger
@@ -33,19 +37,22 @@ builder.Logging.AddSerilog();
 /*
  * This will use the Options pattern: https://learn.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-6.0
  * Essentially it means we can always inject IOptions<EnvironmentVariables> into a service (and thereby having it easily mockable)
- * Also note that builder.Configuration uses code like:
- *                 configuration = new ConfigurationBuilder()
- *                  .AddEnvironmentVariables();
-                    .AddJsonFile($"appsettings.json", optional: true)
-                    .AddJsonFile($"appsettings.development.json", optional: true)
-                    
-    Which essentially means: Take environment variables, override with app settings if present, override with app settings development if present (I believe this is the order)
+    ake environment variables, override with app settings if present, override with app settings development if present (I believe this is the order)
     app.settings.development should always be .gitignored and is for local development
  */
-builder.Services.Configure<EnvironmentVariables>(builder.Configuration);
+
+var config = new ConfigurationBuilder()
+    .AddEnvironmentVariables()
+    .AddJsonFile("appsettings.json")
+    .AddJsonFile("appsettings.development.json", optional: true)
+    .Build();
+
+builder.Services.Configure<EnvironmentVariables>(config);
 
 builder.Services.AddScoped<IHandler<CreateCarRequest, CreateCarResponse>, CreateCarHandler>();
 builder.Services.AddScoped<IHandler<GetCarRequest, GetCarResponse>, GetCarHandler>();
+builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 
 var app = builder.Build();
 
